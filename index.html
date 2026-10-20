@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Motion Graphics Reel - MH Technology Lab</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f172a;
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        /* Mobile 9:16 Vertical Reel Canvas Container */
+        .reel-container {
+            width: 360px;
+            height: 640px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #31103f 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            border-radius: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 16px;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #818cf8, #c084fc, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Keyframe Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes progressFill {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        .animate-header { animation: fadeInDown 0.6s ease forwards 0.2s; opacity: 0; }
+        .animate-headline { animation: scaleIn 0.8s ease forwards 0.4s; opacity: 0; }
+        .animate-card { animation: fadeInUp 0.8s ease forwards 0.6s; opacity: 0; }
+        .animate-progress { animation: progressFill 1.2s ease-in-out forwards 1.0s; }
+        .animate-cta { animation: fadeInUp 0.6s ease forwards 1.2s; opacity: 0; }
+    </style>
+</head>
+<body>
+
+    <div class="reel-container" id="reel">
+        <!-- Ambient Background Orbs -->
+        <div style="position: absolute; top: -80px; left: -80px; width: 240px; height: 240px; background: rgba(168, 85, 247, 0.25); border-radius: 50%; filter: blur(60px); pointer-events: none;"></div>
+        <div style="position: absolute; bottom: -80px; right: -80px; width: 240px; height: 240px; background: rgba(99, 102, 241, 0.25); border-radius: 50%; filter: blur(60px); pointer-events: none;"></div>
+
+        <!-- Top Header Badge -->
+        <div class="animate-header" style="display: flex; align-items: center; justify-content: space-between; z-index: 10;">
+            <div class="glass-card" style="padding: 6px 14px; display: flex; align-items: center; gap: 8px; border-radius: 9999px;">
+                <div style="width: 10px; height: 10px; border-radius: 50%; background: #34d399;"></div>
+                <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.05em; color: #e2e8f0;">AI MOTION LAB</span>
+            </div>
+            <span style="font-size: 11px; font-weight: 700; color: #a5b4fc;">9:16 REEL</span>
+        </div>
+
+        <!-- Center Content -->
+        <div style="z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: auto 0; gap: 20px; width: 100%;">
+            
+            <div class="animate-headline">
+                <h1 style="font-size: 26px; font-weight: 800; line-height: 1.25; margin: 0; color: #ffffff;">
+                    Automate Your <br><span class="gradient-text">Video Workflow</span>
+                </h1>
+            </div>
+
+            <div class="animate-card glass-card" style="width: 100%; text-align: left; display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(129, 140, 248, 0.3); display: flex; align-items: center; justify-content: center; font-size: 18px;">
+                        ⚡
+                    </div>
+                    <div>
+                        <h2 style="font-size: 13px; font-weight: 700; margin: 0; color: #ffffff;">Claude & Gemini AI</h2>
+                        <p style="font-size: 11px; color: #94a3b8; margin: 2px 0 0 0;">Instant Motion Code & SRT Sync</p>
+                    </div>
+                </div>
+                <div style="width: 100%; background: rgba(30, 41, 59, 0.8); height: 8px; border-radius: 9999px; overflow: hidden;">
+                    <div class="animate-progress" style="background: linear-gradient(to right, #6366f1, #ec4899); height: 100%; width: 0%; border-radius: 9999px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="animate-cta" style="z-index: 10;">
+            <button onclick="replayAnimation()" style="width: 100%; padding: 14px; border-radius: 14px; background: linear-gradient(to right, #4f46e5, #7c3aed); border: none; font-weight: 700; font-size: 13px; color: white; cursor: pointer; box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4);">
+                Replay Animation 🎬
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        function replayAnimation() {
+            const reel = document.getElementById('reel');
+            const newContent = reel.innerHTML;
+            reel.innerHTML = '';
+            setTimeout(() => {
+                reel.innerHTML = newContent;
+            }, 50);
+        }
+    </script>
+</body>
+</html>
